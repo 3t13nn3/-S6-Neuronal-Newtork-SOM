@@ -3,13 +3,15 @@
 #define DEBUG
 
 int main(int argc, char ** argv){
+
+	srand(time(NULL));
+
 	/*INIT ARG*/
 	if(argc > 2){
 		printf("Usage: ./nn.out (file)\n");
 		return -1;
 	}
 	char* file_name = (argc == 1) ? "Data/iris.data" : argv[1];
-
 
 	/*INIT DATA*/
 	Configuration c;
@@ -35,5 +37,6 @@ int main(int argc, char ** argv){
 		network.all_the_neurons[i].data = malloc((size_t) c.data_size * sizeof(double));
 	}
 	init_neurons(&network,global_data,c);
+
 	return 0;
 }
