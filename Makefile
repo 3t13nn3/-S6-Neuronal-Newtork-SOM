@@ -3,7 +3,7 @@
 SRC	= $(wildcard *.c)
 OBJS	= $(SRC:.c=.o)
 HEADER	= $(wildcard *.h)
-OUT		= o
+OUT		= nn.out
 CC	 	= gcc
 
 CFLAGS	= -Ofast -Wall -W
