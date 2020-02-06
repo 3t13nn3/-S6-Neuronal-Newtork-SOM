@@ -2,4 +2,4 @@
 
 #include "struct.h"
 
-void display_datas(Iris ** all_iris, Configuration c);
+void display_datas(Element ** all_element, Configuration c);

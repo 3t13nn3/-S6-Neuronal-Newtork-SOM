@@ -12,7 +12,7 @@ struct configuration{
 };
 typedef struct configuration Configuration;
 
-struct iris {
+struct element {
 	double* data; /*sepal_lenght;
 					sepal_width;
 					petal_length;
@@ -20,7 +20,7 @@ struct iris {
     char*   name;
 	double  norm;
 };
-typedef struct iris Iris;
+typedef struct element Element;
 
 struct neuron{
 	double* data;

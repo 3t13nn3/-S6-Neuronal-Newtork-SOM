@@ -4,5 +4,5 @@
 
 #define NEURON_SIZE(N) 5*sqrt(N)
 
-void   normalize(Iris * current_iris, uint size);
+void   normalize(Element * current_element, uint size);
 double Euclidian_dist(double * a, double * b, uint size);

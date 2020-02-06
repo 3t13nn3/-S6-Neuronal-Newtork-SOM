@@ -21,21 +21,21 @@ uint count_datas(char* filename){
 }
 
 
-/*Recovering an iris data into an iris struct*/
-Iris recovery_data(char* current_iris, uint size){
+/*Recovering an element data into an element struct*/
+Element recovery_data(char* current_element, uint size){
 	const char s[3] = ",\n";
-	char       iris_string[256];
+	char       element_string[256];
 	int        cpt = 0;
 	char*      token;
-   	Iris       to_return;
+   	Element    to_return;
 
     to_return.data = malloc((size_t) size * sizeof(double));
 
    	
-	strcpy(iris_string, current_iris);
+	strcpy(element_string, current_element);
 	
 	/* get the first token */
-	token = strtok(iris_string, s);
+	token = strtok(element_string, s);
 
 	while(token != NULL){
 		switch(cpt){
@@ -65,7 +65,7 @@ Iris recovery_data(char* current_iris, uint size){
 }
 
 
-void filling_data_from_file(char* filename, Iris **all_iris, Configuration c){
+void filling_data_from_file(char* filename, Element **all_element, Configuration c){
 	uint cpt = 0;
 			
 	FILE* file = NULL;
@@ -75,7 +75,7 @@ void filling_data_from_file(char* filename, Iris **all_iris, Configuration c){
     	char line [128];
 	    while(cpt < c.global_size){
 	    	fgets(line, sizeof line, file);
-	    	(*all_iris)[cpt] = recovery_data(line,c.data_size);
+	    	(*all_element)[cpt] = recovery_data(line,c.data_size);
 	    	cpt++;
 	    }
     }

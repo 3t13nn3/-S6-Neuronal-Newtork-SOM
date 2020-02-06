@@ -2,4 +2,4 @@
 
 #include "struct.h"
 
-void init_neurons(Neuron_network * network, Iris * all_iris, Configuration c);
+void init_neurons(Neuron_network * network, Element * all_element, Configuration c);
