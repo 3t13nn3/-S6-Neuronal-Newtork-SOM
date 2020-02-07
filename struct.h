@@ -23,6 +23,7 @@ typedef struct element Element;
 struct neuron{
 	double* data_;
 	uint    size_;
+		char*   name_; ////debug
 };
 typedef struct neuron Neuron;
 
@@ -38,8 +39,9 @@ typedef struct neuron_network Neuron_network;
 
 typedef struct neuron_node Neuron_node;
 struct neuron_node{
-	Neuron        neur_;
-	Neuron_node*  next_;
+	Neuron       neur_;
+	double       dist_;
+	Neuron_node* next_;
 };
 
 struct neuron_list {

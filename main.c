@@ -38,7 +38,7 @@ int main(int argc, char ** argv){
 	network.all_the_neurons_ = malloc((size_t) network.size_ * sizeof(Neuron));
 
 	for(i=0; i< c.global_size_; ++i){
-		init_neuron(&network.all_the_neurons_[i], c.data_size_);
+		init_empty_neuron(&network.all_the_neurons_[i], c.data_size_);
 	}
 	
 	init_neuron_network(&network,global_data,c);
