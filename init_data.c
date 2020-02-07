@@ -29,7 +29,7 @@ Element recovery_data(char* current_element, uint size){
 	char*      token;
    	Element    to_return;
 
-    to_return.data = malloc((size_t) size * sizeof(double));
+    to_return.data_ = malloc((size_t) size * sizeof(double));
 
    	
 	strcpy(element_string, current_element);
@@ -40,20 +40,20 @@ Element recovery_data(char* current_element, uint size){
 	while(token != NULL){
 		switch(cpt){
 			case 0:
-				to_return.data[0] = strtod(token,NULL);
+				to_return.data_[0] = strtod(token,NULL);
 				break;
 			case 1:
-				to_return.data[1] = strtod(token,NULL);
+				to_return.data_[1] = strtod(token,NULL);
 				break;
 			case 2:
-				to_return.data[2] = strtod(token,NULL);
+				to_return.data_[2] = strtod(token,NULL);
 				break;
 			case 3:
-				to_return.data[3] = strtod(token,NULL);
+				to_return.data_[3] = strtod(token,NULL);
 				break;
 			default:
-				to_return.name = malloc((size_t) strlen(token) * sizeof(char));
-				to_return.name = token;
+				to_return.name_ = malloc((size_t) strlen(token) * sizeof(char));
+				to_return.name_ = token;
 				break;
 		}
 
@@ -73,9 +73,9 @@ void filling_data_from_file(char* filename, Element **all_element, Configuration
 
     if(file != NULL){
     	char line [128];
-	    while(cpt < c.global_size){
+	    while(cpt < c.global_size_){
 	    	fgets(line, sizeof line, file);
-	    	(*all_element)[cpt] = recovery_data(line,c.data_size);
+	    	(*all_element)[cpt] = recovery_data(line,c.data_size_);
 	    	cpt++;
 	    }
     }

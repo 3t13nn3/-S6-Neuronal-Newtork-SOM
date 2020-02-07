@@ -7,30 +7,45 @@
 typedef unsigned int uint;
 
 struct configuration{
-	uint global_size;
-	uint data_size;
+	uint global_size_;
+	uint data_size_;
 };
 typedef struct configuration Configuration;
 
-struct element {
-	double* data; /*sepal_lenght;
-					sepal_width;
-					petal_length;
-					petal_width;*/
-    char*   name;
-	double  norm;
+struct element{
+	double* data_;
+	uint    size_;
+    char*   name_;
+	double  norm_;
 };
 typedef struct element Element;
 
 struct neuron{
-	double* data;
+	double* data_;
+	uint    size_;
 };
 typedef struct neuron Neuron;
 
 struct neuron_network{
-	Neuron * all_the_neurons;
-	uint size;
+	Neuron* all_the_neurons_;
+	uint  	size_;
+	uint    width_;
 };
 typedef struct neuron_network Neuron_network;
+
+
+//neuronal list
+
+typedef struct neuron_node Neuron_node;
+struct neuron_node{
+	Neuron        neur_;
+	Neuron_node*  next_;
+};
+
+struct neuron_list {
+	Neuron_node* first_;
+};
+typedef struct neuron_list Neuron_list;
+
 
 #endif

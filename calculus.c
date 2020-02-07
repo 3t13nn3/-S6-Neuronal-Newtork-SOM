@@ -4,12 +4,12 @@ void normalize(Element * current_element, uint size){
 	uint i;
 	double result = 0;
 	for(i=0 ; i<size ; ++i){
-		result+= current_element->data[i]*current_element->data[i];
+		result+= current_element->data_[i]*current_element->data_[i];
 	}
-	current_element->norm = sqrt(result);
+	current_element->norm_ = sqrt(result);
 
 	for(i=0 ; i<size ; ++i){
-		current_element->data[i]/=current_element->norm;
+		current_element->data_[i]/=current_element->norm_;
 	}
 }
 
