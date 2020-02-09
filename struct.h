@@ -23,7 +23,6 @@ typedef struct element Element;
 struct neuron{
 	double* data_;
 	uint    size_;
-		char*   name_; ////debug
 };
 typedef struct neuron Neuron;
 

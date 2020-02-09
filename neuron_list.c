@@ -18,12 +18,10 @@ Neuron_list* init_neuron_list(uint data_size){
 	return list;
 }
 
-void push_neuron_list(Neuron_list* list, Element e, double dist){
+void push_neuron_list(Neuron_list* list, Neuron n, double dist){
 	Neuron_node* new = malloc(sizeof(Neuron_node));
 
 	if(new != NULL && list != NULL){
-		Neuron n;
-		init_neuron_from_element(&n, e);
 		new->neur_ = n;
 		new->next_ = list->first_;
 		new->dist_ = dist;

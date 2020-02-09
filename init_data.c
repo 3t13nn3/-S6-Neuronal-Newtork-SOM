@@ -17,7 +17,7 @@ uint count_datas(char* filename){
     }
     fclose(file);
 
-    return size;
+    return size+1;
 }
 
 
@@ -53,7 +53,7 @@ Element recovery_data(char* current_element, uint size){
 				break;
 			default:
 				to_return.name_ = malloc((size_t) strlen(token) * sizeof(char));
-				to_return.name_ = token;
+				strcpy(to_return.name_, token);
 				break;
 		}
 
@@ -61,6 +61,7 @@ Element recovery_data(char* current_element, uint size){
     	cpt++;
 	}
 	normalize(&to_return, size);
+	//printf("%s\n",to_return.name_);
 	return to_return;
 }
 

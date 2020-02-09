@@ -1,6 +1,6 @@
 #include "head.h"
 
-#define DEBUG
+//#define DEBUG_MAIN_DISPLAY
 
 int main(int argc, char ** argv){
 
@@ -27,7 +27,7 @@ int main(int argc, char ** argv){
 
     filling_data_from_file(file_name, &global_data, c);
 
-#ifdef DEBUG
+#ifdef DEBUG_MAIN_DISPLAY
     display_datas(global_data, c);
 #endif
 

@@ -5,13 +5,6 @@ void init_empty_neuron(Neuron* n, uint size){
 	n->size_ = size;
 }
 
-void init_neuron_from_element(Neuron* n, Element e){
-	n->data_ = malloc((size_t) e.size_ * sizeof(double));
-	n->size_ = e.size_;
-	n->data_ = e.data_;
-	n->name_ = e.name_;
-}
-
 void init_neuron_network(Neuron_network * network, Element * all_element, Configuration c){
 	uint i;
 	uint j;
@@ -51,20 +44,20 @@ void learning(Neuron_network * network, Element * learning_data, Configuration c
 		indexs[i] = i;
 	}
 
-	/*searching for the best one */
-	for(current_neuron=0; current_neuron<network->size_; current_neuron++){
+	/*searching for the neuron for each data*/
+	for(current_data=0; current_data<c.global_size_; current_data++){
 		winners = init_neuron_list(c.data_size_);
-		for(current_data=0; current_data<c.global_size_; current_data++){
+		for(current_neuron=0; current_neuron<network->size_; current_neuron++){
 			dist = Euclidian_dist(network->all_the_neurons_[current_neuron].data_,learning_data[current_data].data_,c.data_size_);
 			switch(compare_neuron_to_list(winners, dist)){
 				case LOWER:
 					//on supprime la list et on ajoute notre nouveau neurone
 					delete_all_neurons_list(winners);
-					push_neuron_list(winners, learning_data[current_data], dist);
+					push_neuron_list(winners, network->all_the_neurons_[current_neuron], dist);
 					break;
 				case EQUAL:
 					//on ajoute seuelemtn
-					push_neuron_list(winners, learning_data[current_data], dist);
+					push_neuron_list(winners, network->all_the_neurons_[current_neuron], dist);
 					break;
 				case GREATER:
 					//on fait rien
@@ -75,8 +68,10 @@ void learning(Neuron_network * network, Element * learning_data, Configuration c
 				default: break;
 			}
 		}
-		printf("\n\n%d\n", current_neuron);
+		#ifdef DEBUG_LIST_DISPLAY
+		printf("\n\n%d\n", current_data);
 		neuron_list_printer(winners,c.data_size_);
+		#endif
 		delete_all_neurons_list(winners);
 	}
 
