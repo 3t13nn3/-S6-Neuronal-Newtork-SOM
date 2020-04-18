@@ -22,9 +22,8 @@ void neuron_list_printer(Neuron_list* list, uint data_size){
 	    Neuron_node* current = list->first_;
 	    while (current != NULL){
 	    	printf("DIST: %f -- |", current->dist_);
-	    	for(i=0; i < data_size; i++){
-				printf("%f|",current->neur_.data_[i]);
-			}
+			printf("%d|",current->index_);
+
 	        printf("\n-> ");
 	        current = current->next_;
 	    }

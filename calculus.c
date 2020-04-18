@@ -1,4 +1,5 @@
 #include "calculus.h"
+#include <stdio.h>
 
 void normalize(Element * current_element, uint size){
 	uint i;
@@ -10,6 +11,7 @@ void normalize(Element * current_element, uint size){
 
 	for(i=0 ; i<size ; ++i){
 		current_element->data_[i]/=current_element->norm_;
+		//printf("%f\n", current_element->data_[0]);
 	}
 }
 

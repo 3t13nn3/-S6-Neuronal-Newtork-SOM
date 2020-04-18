@@ -36,12 +36,20 @@ int main(int argc, char ** argv){
 
 	network.size_ = NEURON_SIZE(c.global_size_);
 	network.all_the_neurons_ = malloc((size_t) network.size_ * sizeof(Neuron));
+	//to change
+	network.width_ = 10;
 
 	for(i=0; i< c.global_size_; ++i){
 		init_empty_neuron(&network.all_the_neurons_[i], c.data_size_);
 	}
 	
 	init_neuron_network(&network,global_data,c);
-	learning(&network, global_data, c);
+
+	adapt(&network, global_data, c);
+
+	labeling(&network, global_data, c);
+
+	print_network(&network);
+	
 	return 0;
 }
